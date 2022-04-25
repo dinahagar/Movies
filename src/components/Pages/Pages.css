@@ -1,0 +1,58 @@
+/* top rated page*/
+.movie-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.page-title{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.pages-body{
+    padding: 50px 0px 80px 0px;
+}
+/*pages content*/
+ .page-content-div{
+    display: flex !important;
+    flex-direction: column;
+    width: 220px;
+    padding: 5px 5px 75px 5px !important;
+    margin: 15px 5px !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    background-color: #282c34 !important;
+    cursor: pointer;
+}
+.page-poster{
+    border-radius: 10px;
+    height: 250px;
+}
+.page-content-body{
+    text-align: center;
+    color: #fff;
+    margin-top: 8px;
+}
+.page-media-type{
+    position: absolute;
+    left: 20px;
+}
+.page-date{
+    position: absolute;
+    right: 20px;
+}
+.movie-button{
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+    padding: 2px 25px;
+    background-color: #fff;
+    color: #282c34;
+    font-weight: 500;
+    border-color: transparent;
+    border-radius: 20px;
+}
+.page-rate{
+    top: 0px !important;
+    right: 0px !important;
+}

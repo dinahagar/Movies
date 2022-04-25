@@ -1,0 +1,54 @@
+.poster{
+    width: 80%;
+    height: 300px;
+    border-radius: 10px;
+    margin-left: 10%;
+    box-shadow: 7px 0px 4px 0px rgba(0, 0, 0, 0.2), 
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.content-card{
+    position: relative;
+    transition: all .5s ease-in;
+}
+.card-overlay{
+    position: absolute;
+    top: 24px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 80%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+.content-card:hover .card-overlay {
+    opacity: 0.7;
+}
+.content-card-body{
+    cursor: pointer;
+}
+.title-body{
+    color: #fff;
+}
+.title-body h3{
+    position: absolute;
+    top: 60px;
+    left: 45px;
+}
+.media-type{
+    position: absolute;
+    bottom: 30px;    
+    left: 40px;
+}
+.date{
+    position: absolute;
+    bottom: 30px;    
+    right: 40px;
+}
+.home-rate{
+    top: 14px !important;
+    right: 38px !important;
+}

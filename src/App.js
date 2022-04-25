@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter , Routes , Route} from "react-router-dom"
+import Home from './components/Home/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import MovieDetails from './components/MovieDetails/MovieDetails';
+import TopRatedPage from "./components/Pages/TopRatedPage"
+import TrendingPage from "./components/Pages/TrendingPage"
+import UpComingPage from "./components/Pages/UpComingPage"
+import LatestPage from "./components/Pages/LatestPage"
+import SimilarPage from './components/Pages/SimilarPage';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar />
+          <Routes>
+            <Route path='/' exact element={<Home />} />
+            <Route path='/moviedetails' element={<MovieDetails />} />
+            <Route path='/topratedpage' element={<TopRatedPage />} />
+            <Route path='/trendingpage' element={<TrendingPage />} />
+            <Route path='/upcomingpage' element={<UpComingPage />} />
+            <Route path='/latestpage' element={<LatestPage />} />
+            <Route path='/similarpage' element={<SimilarPage />} />
+          </Routes>
+        <Footer />
+      </BrowserRouter>
+
     </div>
   );
 }
