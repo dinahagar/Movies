@@ -7,12 +7,12 @@ import { useLocation } from 'react-router'
 const SimilarPage = () => { 
   const [page , setPage] = useState(1)
 
-  const state = useLocation().state; // = const {state} = useLocation()
+  const state = useLocation().state; 
   let id = state.id
 
   const { data, error, isLoading , isFetching } = useGetSimilarMoviesQuery(id,page)
 
-  console.log(page);
+  // console.log(page);
   return (
     <div className='pages-body'>
       <div className='container'>
@@ -26,6 +26,7 @@ const SimilarPage = () => {
             <> 
               {data.results.map(result => 
                 <PagesContent 
+                  result={result}
                   key={result.id}
                   id={result.id}
                   poster={result.poster_path}

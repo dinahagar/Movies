@@ -8,11 +8,12 @@ import { useGetSimilarMoviesQuery } from '../redux/movieApi'
 import { Link , useNavigate } from 'react-router-dom';
 import Content from './Home/Home-Content/Content';
 
-const SimilarMovies = ({id}) => {
+const SimilarMovies = ({id , result}) => { //id from pagecontent
 
   const [page , setPage] = useState(1)
   const { data, error, isLoading } = useGetSimilarMoviesQuery(id,page) 
   // console.log(data?.results);
+  console.log(id); //for movie show similar for it in the same page
 
   var settings = {
     dots: false,
@@ -26,7 +27,15 @@ const SimilarMovies = ({id}) => {
     },
     responsive: [
       {
+        breakpoint: 1400,
+        settings: {slidesToShow: 3,}
+      },
+      {
         breakpoint: 992,
+        settings: {slidesToShow: 2,}
+      },
+      {
+        breakpoint: 768,
         settings: {slidesToShow: 1,}
       },
     ],
@@ -46,9 +55,6 @@ const SimilarMovies = ({id}) => {
     <div className='similar'>
       <div className='container'>
 
-      {/* <Link to="/similarpage">
-        <h4>SimilarMovies</h4>
-      </Link> */}
       <h1 onClick={()=>handleRoute(id)} className="similar-title">similar</h1>
 
         {error ? (

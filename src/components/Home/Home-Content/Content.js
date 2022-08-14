@@ -8,16 +8,16 @@ const Content = ({
     id,date,title,media_type,vote_average,poster
 }) => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleRoute = () => {
-      navigate("/moviedetails" , {
-        state : {
-          id:id,
-        }
-      })
-    }
-  
+  const handleRoute = () => {
+    navigate("/moviedetails" , {
+      state : {
+        id:id,
+      }
+    })
+  }
+
   return (
     <div className='content-card'>
         <Badge overlap='rectangular'

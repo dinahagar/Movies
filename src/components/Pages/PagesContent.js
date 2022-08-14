@@ -1,25 +1,45 @@
 import { Badge } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { img_300, unavailable } from '../../Config'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import "./Pages.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus , faCheck } from '@fortawesome/free-solid-svg-icons';
+// import { addToList, removeFromList } from '../../redux/movieSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const PagesContent = ({
-  id,poster,title,date,media_type,vote_average
+  id,poster,title,date,media_type,vote_average,result,listItem
 }) => {
 
+  // console.log(id);
+  const [click , setClick] = useState(false)
+
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const handleRoute = () => {
+  const handleRoute = () => { //for img in pagrcontent
     navigate("/moviedetails" , {
       state : {
         id:id,
+        result:result
       }
     })
   }
   
+  // const handleAddToList = (result) => {
+  //   setClick(true);
+  //   dispatch(addToList(result));
+  //   // navigate("/list")
+  // }
+
+  // const handleRemoveFromList = (result) => {
+  //   dispatch(removeFromList(result))
+  //   setClick(false);
+  // }
+
   return (
     <div className='page-content-div'>
       <Badge overlap="rectangular"
@@ -34,12 +54,19 @@ const PagesContent = ({
                 {media_type === "tv" ? "TV Series" : "Movie"}
             </div>
             <div className='page-subtitle page-date'>
-                {date.substring(0,4)}
+                {date?.substring(0,4)}
             </div>
             <div>
-              <button onClick={()=>handleRoute(id)} className="movie-button">
+              <button onClick={()=>handleRoute(result)} className="movie-button">
                 Details
               </button>
+
+              {/* <button className="list-button">
+                {click === false ? 
+                <FontAwesomeIcon icon={faPlus} onClick={()=>handleAddToList(result)} /> : 
+                <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />}
+              </button> */}
+            
             </div>
         </div>
     </div>

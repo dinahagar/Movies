@@ -8,7 +8,7 @@ const Video = ({id}) => {
 
     const {data} = useGetVideoQuery(id)
 
-    let video = data?.results[0].key
+    let video = data?.results[0]?.key
 
     // console.log(data?.results[0]);
 

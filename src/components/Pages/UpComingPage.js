@@ -24,6 +24,7 @@ const UpComingPage = () => {
             <> 
               {data.results.map(result => 
                 <PagesContent 
+                  result={result}
                   key={result.id}
                   id={result.id}
                   poster={result.poster_path}

@@ -28,13 +28,12 @@ export const movieApi = createApi({
     getMovieCast:builder.query({
       query: (id) => `movie/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}`
     }),
-    getSearch:builder.query({
-      query: (page=1,searchText) => `search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchText}&page=${page}`
-    }),
     getVideo:builder.query({
       query: (id) => `movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}`
     }),
-
+    getSearch:builder.query({
+      query: (searchText) => `search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchText}&page=1`
+    })
   }),
 })
 
@@ -47,7 +46,7 @@ export const {
     useGetSimilarMoviesQuery,
     useGetMovieDetailsQuery,
     useGetMovieCastQuery,
-    useGetSearchQuery,
     useGetVideoQuery,
+    useGetSearchQuery
     } = movieApi
 

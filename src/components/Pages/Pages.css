@@ -44,7 +44,8 @@
 .movie-button{
     position: absolute;
     bottom: 10px;
-    right: 60px;
+    /* right: 60px; */
+    right: 10px;
     padding: 2px 25px;
     background-color: #fff;
     color: #282c34;
@@ -52,7 +53,38 @@
     border-color: transparent;
     border-radius: 20px;
 }
+/* .list-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 2px 9px;
+    background-color: #fff;
+    color: #282c34;
+    font-weight: 500;
+    border: none;
+    border-color: transparent;
+    border-radius: 20px;
+    font-size: 20px;
+} */
 .page-rate{
     top: 0px !important;
     right: 0px !important;
+}
+/*search*/
+.search-page{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.search-input{
+    width: 60%;
+    margin-left: 20%;
+}
+.search-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.no-result{
+    color: red;
+    padding-top: 50px;
 }

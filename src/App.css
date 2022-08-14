@@ -9,7 +9,6 @@ body{
 }
 /*Navbar*/
 .main-nav{
-  /* background-color: #ececec; */
   background-color: #282c34;
   border: solid 1px transparent;
   box-shadow: 7px 0px 4px 0px rgba(0, 0, 0, 0.2), 
@@ -23,13 +22,12 @@ body{
 .navbarDropdown-ul {
   top: 100% !important;
   left: -42px !important;
-  border: none !important;
+  border: none !important; 
 }
 .movie-icon{
   font-size: 35px;
-  /* color: rgb(124, 7, 7); */
   color: yellow;
-}
+} 
 .search-input{
   border: none !important;
 }
@@ -44,17 +42,18 @@ body{
 }
 .search-icon{
   position: absolute;
-  top: 12px;
-  left: 13px;
+  color: #fff;
+  top: 8px;
+  right: 13px;
+  font-size: 20px;
+  cursor: pointer;
 }
 .user-icon{
   font-size: 33px;
-  /* color: rgb(124, 7, 7); */
   color: yellow;
   margin-left: 15px;
 }
 .dropdown-arrow,.dropdown-arrow:hover{
-  /* color: rgb(124, 7, 7);; */
   color: yellow;
 }
 .navbar-light .navbar-toggler{
@@ -75,7 +74,6 @@ body{
 
 /*footer*/
 .footer{
-  /* background-color: #ececec ; */
   background-color: #282c34 ; 
   padding: 20px 0px 20px 0px;
   border: solid 1px transparent;
@@ -95,7 +93,6 @@ body{
   font-size: 40px;
 }
 .footer-text{
-  /* color: rgb(222, 222, 222); */
   color: yellow;
   text-align: right;
 }
