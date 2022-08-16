@@ -1,5 +1,7 @@
 .list-div{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .list-h{
     color: #fff;
@@ -35,6 +37,7 @@
 .clear-btn-div{
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .clear-btn{
     color: #282c34;
