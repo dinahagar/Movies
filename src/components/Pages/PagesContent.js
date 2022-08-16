@@ -1,5 +1,5 @@
 import { Badge } from '@material-ui/core'
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { img_300, unavailable } from '../../Config'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,18 +15,13 @@ const PagesContent = ({
 }) => {
 
   const list = useSelector(state => state.movie)
-  // console.log(list.listItems);
   let storedMovie = list.listItems.find(o => o.id === result.id)
-  // console.log(storedMovie);
   const storedList = storedMovie ? true : false;
-
-  // console.log(id);
-  // const [click , setClick] = useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const handleRoute = () => { //for img in pagrcontent
+  const handleRoute = () => { 
     navigate("/moviedetails" , {
       state : {
         id:id,
@@ -36,14 +31,12 @@ const PagesContent = ({
   }
   
   const handleAddToList = (result) => {
-    // setClick(true);
     dispatch(addToList(result));
     // navigate("/list")
   }
 
   const handleRemoveFromList = (result) => {
     dispatch(removeFromList(result))
-    // setClick(false);
   }
 
   return (

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import axios from "axios"
+import React, { useState } from 'react'
 import PagesContent from './PagesContent'
 import { useGetSearchQuery } from '../../redux/movieApi'
 
@@ -8,8 +7,6 @@ const Search = () => {
     const [searchText , setSearchText] = useState("")
 
     const {data} = useGetSearchQuery(searchText)
-    // console.log(data?.results);
-    
 
   return (
     <div className='search-page'>

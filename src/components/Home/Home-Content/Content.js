@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./Content.css"
 import { img_300, unavailable } from '../../../Config'
 import { Badge } from '@material-ui/core'
@@ -13,12 +13,8 @@ const Content = ({
 }) => {
 
   const list = useSelector(state => state.movie)
-  // console.log(list.listItems);
   let storedMovie = list.listItems.find(o => o?.id === result?.id)
-  // console.log(storedMovie);
   const storedList = storedMovie ? true : false;
-
-  // const [click , setClick] = useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -33,14 +29,12 @@ const Content = ({
   }
 
   const handleAddToList = (result) => {
-    // setClick(true);
     dispatch(addToList(result));
     // navigate("/list")
   }
 
   const handleRemoveFromList = (result) => {
     dispatch(removeFromList(result))
-    // setClick(false);
   }
 
   return (
@@ -67,7 +61,6 @@ const Content = ({
 
             <div className='card-overlay'>
                 <div className='title-body'>
-                    {/* <h3>{title}</h3> */}
                     <div className='subtitle media-type'>
                         {media_type === "tv" ? "TV Series" : "Movie"}
                     </div>

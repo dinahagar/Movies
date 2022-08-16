@@ -12,7 +12,6 @@ const SimilarPage = () => {
 
   const { data, error, isLoading , isFetching } = useGetSimilarMoviesQuery(id,page)
 
-  // console.log(page);
   return (
     <div className='pages-body'>
       <div className='container'>

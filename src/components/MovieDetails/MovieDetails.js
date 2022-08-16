@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useGetMovieDetailsQuery } from '../../redux/movieApi'
 import { img_500 } from '../../Config'
@@ -15,37 +15,30 @@ import { useDispatch, useSelector } from 'react-redux'
 const MovieDetails = () => {
 
   const state = useLocation().state; 
-  let id = state.id  //from pageContent
-  let result = state.result //from pageContent
-  // console.log(id);
+  let id = state.id  
+  let result = state.result 
 
   const list = useSelector(state => state.movie)
-  // console.log(list.listItems);
   let storedMovie = list.listItems.find(o => o?.id === result?.id)
-  // console.log(storedMovie);
   const storedList = storedMovie ? true : false;
 
-  
-  // const [click , setClick] = useState(false)
   const {data , error , isLoading} = useGetMovieDetailsQuery(id)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleAddToList = (result) => {
-    // setClick(true);
     dispatch(addToList(result));
     navigate("/list" , {
       state : {
-        id:id ,//from pagecontent
-        result:result , //from pagecontent
+        id:id ,
+        result:result , 
       }
     })
   }
 
   const handleRemoveFromList = (result) => {
     dispatch(removeFromList(result))
-    // setClick(false);
   }
 
   return (
@@ -66,7 +59,6 @@ const MovieDetails = () => {
               <p className='details-overview'>{data.overview}</p>
               <span className='details-date'>{data.release_date}</span>
 
-              {/* add to list btn */}
               <button className="details-list-button">
                 {storedList ? 
                   <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />: 
@@ -86,7 +78,7 @@ const MovieDetails = () => {
           </div>
 
           <div className='similar-movies'>
-            <SimilarMovies id={id} result={result} />  {/*id from pagecontent */}
+            <SimilarMovies id={id} result={result} />  
           </div>
 
         </div>

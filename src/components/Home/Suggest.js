@@ -8,12 +8,8 @@ import { addToList, removeFromList } from '../../redux/movieSlice';
 const Suggest = ({id,title,backdrop,result}) => {
 
   const list = useSelector(state => state.movie)
-  // console.log(list.listItems);
   let storedMovie = list.listItems.find(o => o.id === result.id)
-  // console.log(storedMovie);
   const storedList = storedMovie ? true : false;
-
-  // const [click , setClick] = useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -28,14 +24,12 @@ const Suggest = ({id,title,backdrop,result}) => {
   }
 
   const handleAddToList = (result) => {
-    // setClick(true);
     dispatch(addToList(result));
     // navigate("/list")
   }
 
   const handleRemoveFromList = (result) => {
     dispatch(removeFromList(result))
-    // setClick(false);
   }  
 
   return (
@@ -45,8 +39,6 @@ const Suggest = ({id,title,backdrop,result}) => {
                 <img src={"https://image.tmdb.org/t/p/w300/"+backdrop} className="movie-slide-img" alt='' />
                 <h1 className='container suggest-title'>{title}</h1>
                 <button className='suggest-button' onClick={()=>handleRoute(id)}>Details</button>
-
-                {/* add to list button */}
                 <button className="list-suggest-btn">
                   {storedList ? 
                   <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />: 

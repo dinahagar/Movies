@@ -11,7 +11,6 @@ import "./List.css"
 const List = () => {
 
     const list = useSelector(state => state.movie)
-    // console.log(list.listItems);
 
     const dispatch = useDispatch()
   

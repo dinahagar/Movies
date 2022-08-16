@@ -10,8 +10,6 @@ const Video = ({id}) => {
 
     let video = data?.results[0]?.key
 
-    // console.log(data?.results[0]);
-
   return (
     <div>
         <Button
