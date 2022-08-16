@@ -11,15 +11,9 @@ import "./List.css"
 const List = () => {
 
     const list = useSelector(state => state.movie)
-    console.log(list.listItems);
     // console.log(list.listItems);
 
     const dispatch = useDispatch()
-
-    // const state = useLocation().state; 
-    // let id = state.id  //from details //from pagecontent
-    // let result = state.result
-    // console.log(result);
   
     const handleClearCart = () => {
         dispatch(clearList())

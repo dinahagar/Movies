@@ -7,40 +7,46 @@ import "./MovieDetails.css"
 import SimilarMovies from '../SimilarMovies'
 import Cast from '../Cast'
 import Video from '../Video'
-
-// import { addToList, removeFromList } from '../../redux/movieSlice';
+import { addToList, removeFromList } from '../../redux/movieSlice';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus , faCheck } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const MovieDetails = () => {
 
   const state = useLocation().state; 
   let id = state.id  //from pageContent
   let result = state.result //from pageContent
-  console.log(id);
+  // console.log(id);
+
+  const list = useSelector(state => state.movie)
+  // console.log(list.listItems);
+  let storedMovie = list.listItems.find(o => o?.id === result?.id)
+  // console.log(storedMovie);
+  const storedList = storedMovie ? true : false;
+
   
-  const [click , setClick] = useState(false)
+  // const [click , setClick] = useState(false)
   const {data , error , isLoading} = useGetMovieDetailsQuery(id)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // const handleAddToList = (result) => {
+  const handleAddToList = (result) => {
     // setClick(true);
-    // dispatch(addToList(result));
-    // navigate("/list" , {
-    //   state : {
-    //     id:id ,//from pagecontent
-    //     result:result , //from pagecontent
-    //   }
-    // })
-  // }
+    dispatch(addToList(result));
+    navigate("/list" , {
+      state : {
+        id:id ,//from pagecontent
+        result:result , //from pagecontent
+      }
+    })
+  }
 
-  // const handleRemoveFromList = (result) => {
-  //   dispatch(removeFromList(result))
-  //   setClick(false);
-  // }
+  const handleRemoveFromList = (result) => {
+    dispatch(removeFromList(result))
+    // setClick(false);
+  }
 
   return (
     <div className='movie-details'>
@@ -61,11 +67,12 @@ const MovieDetails = () => {
               <span className='details-date'>{data.release_date}</span>
 
               {/* add to list btn */}
-              {/* <button className="details-list-button">
-                {click === false ? 
-                <FontAwesomeIcon icon={faPlus} onClick={()=>handleAddToList(result)} /> : 
-                <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />}
-              </button> */}
+              <button className="details-list-button">
+                {storedList ? 
+                  <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />: 
+                  <FontAwesomeIcon icon={faPlus} onClick={()=>handleAddToList(result)} />
+                }
+              </button>
 
             </div>
           </div>

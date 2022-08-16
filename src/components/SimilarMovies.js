@@ -13,7 +13,7 @@ const SimilarMovies = ({id , result}) => { //id from pagecontent
   const [page , setPage] = useState(1)
   const { data, error, isLoading } = useGetSimilarMoviesQuery(id,page) 
   // console.log(data?.results);
-  console.log(id); //for movie show similar for it in the same page
+  // console.log(id); //for movie show similar for it in the same page
 
   var settings = {
     dots: false,

@@ -11,7 +11,7 @@ import LatestPage from "./components/Pages/LatestPage"
 import SimilarPage from './components/Pages/SimilarPage';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-// import List from './components/Pages/List/List';
+import List from './components/Pages/List/List';
 import Search from './components/Pages/Search';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
             <Route path='/upcomingpage' element={<UpComingPage />} />
             <Route path='/latestpage' element={<LatestPage />} />
             <Route path='/similarpage' element={<SimilarPage />} />
-            {/*<Route path='/list' element={<List />} />*/}
+            <Route path='/list' element={<List />} />
             <Route path='/search' element={<Search />} />
           </Routes>
         <Footer />

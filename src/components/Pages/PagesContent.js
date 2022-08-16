@@ -7,15 +7,21 @@ import 'bootstrap/dist/js/bootstrap.js';
 import "./Pages.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus , faCheck } from '@fortawesome/free-solid-svg-icons';
-// import { addToList, removeFromList } from '../../redux/movieSlice';
+import { addToList, removeFromList } from '../../redux/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const PagesContent = ({
   id,poster,title,date,media_type,vote_average,result,listItem
 }) => {
 
+  const list = useSelector(state => state.movie)
+  // console.log(list.listItems);
+  let storedMovie = list.listItems.find(o => o.id === result.id)
+  // console.log(storedMovie);
+  const storedList = storedMovie ? true : false;
+
   // console.log(id);
-  const [click , setClick] = useState(false)
+  // const [click , setClick] = useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -29,16 +35,16 @@ const PagesContent = ({
     })
   }
   
-  // const handleAddToList = (result) => {
-  //   setClick(true);
-  //   dispatch(addToList(result));
-  //   // navigate("/list")
-  // }
+  const handleAddToList = (result) => {
+    // setClick(true);
+    dispatch(addToList(result));
+    // navigate("/list")
+  }
 
-  // const handleRemoveFromList = (result) => {
-  //   dispatch(removeFromList(result))
-  //   setClick(false);
-  // }
+  const handleRemoveFromList = (result) => {
+    dispatch(removeFromList(result))
+    // setClick(false);
+  }
 
   return (
     <div className='page-content-div'>
@@ -61,11 +67,12 @@ const PagesContent = ({
                 Details
               </button>
 
-              {/* <button className="list-button">
-                {click === false ? 
-                <FontAwesomeIcon icon={faPlus} onClick={()=>handleAddToList(result)} /> : 
-                <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />}
-              </button> */}
+              <button className="list-button">
+                {storedList ? 
+                  <FontAwesomeIcon icon={faCheck} onClick={()=>handleRemoveFromList(result)} />: 
+                  <FontAwesomeIcon icon={faPlus} onClick={()=>handleAddToList(result)} />
+                }              
+              </button>
             
             </div>
         </div>

@@ -62,15 +62,16 @@ const TopRatedMovies = () => {
 
         <>
             <Slider {...settings}>
-              {data.results.slice(0,10).map((m) => (
+              {data.results.slice(0,10).map((result) => (
                 <Content 
-                  key={m.id}
-                  id={m.id}
-                  title={m.title || m.name}
-                  poster={m.poster_path}
-                  vote_average={m.vote_average}
-                  date={m.release_date || m.first_air_date}
-                  media_type={m.media_type}
+                result={result}
+                key={result.id}
+                id={result.id}
+                title={result.title || result.name}
+                poster={result.poster_path}
+                vote_average={result.vote_average}
+                date={result.release_date || result.first_air_date}
+                media_type={result.media_type}
                 />
               ))}
             </Slider>

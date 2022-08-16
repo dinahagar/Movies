@@ -29,13 +29,13 @@
   position: absolute;
   top: 150px;
   left: 50px;
-  width: 39% !important;
+  width: 38% !important;
   color: #fff;
 }
 .suggest-button{
   position: absolute;
   top: 365px;
-  left: 105px;
+  left: 65px;
   padding: 5px 40px;
   background-color: #fff;
   color: #282c34;
@@ -151,5 +151,51 @@
   }
   .slick-prev {
     left: 0 !important;
+  }
+}
+/*list-suggest-btn*/
+.list-suggest-btn{
+  position: absolute;
+  top: 370px;
+  left: 260px;
+  padding: 2px 9px;
+  /* background-color: #fff;
+  color: #282c34; */
+  background-color: rgb(123, 123, 230);
+  color: yellow;
+  font-weight: 500;
+  border: none;
+  border-color: transparent;
+  border-radius: 20px;
+  font-size: 20px;
+  box-shadow: 7px 0px 4px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+@media (max-width:900px) {
+  .suggest-button{
+    left: 20px;
+  }
+  .list-suggest-btn{
+    left: 200px;
+  }
+}
+@media (max-width:768px) {
+  .list-suggest-btn{
+    top: 281px;
+  }
+}
+@media (max-width:670px) {
+  .list-suggest-btn{
+    top: 405px !important;
+    right: 30px !important;
+    left: unset;
+  }
+}
+@media (max-width:300px) {
+  .suggest-button{
+    left: 3px;
+  }
+  .list-suggest-btn{
+    right: 5px !important;
+    left: unset;
   }
 }

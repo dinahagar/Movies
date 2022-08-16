@@ -42,12 +42,13 @@ const SuggestMovies = () => {
 
         <>
         <Slider {...settings}>
-            {data.results.slice(0,5).map((movie) => (
+            {data.results.slice(0,5).map((result) => (
               <Suggest  
-                key={movie.id}
-                id={movie.id}
-                backdrop={movie.backdrop_path}
-                title={movie.title}
+                result={result}
+                key={result.id}
+                id={result.id}
+                backdrop={result.backdrop_path}
+                title={result.title}
               />
             ))}
         </Slider>

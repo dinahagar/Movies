@@ -12,11 +12,11 @@
 }
 .card-overlay{
     position: absolute;
-    top: 24px;
+    top: 244px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 300px;
+    height: 80px;
     width: 80%;
     opacity: 0;
     transition: .5s ease;
@@ -51,4 +51,37 @@
 .home-rate{
     top: 14px !important;
     right: 38px !important;
+}
+/*list button*/
+.list-home-button{
+    top: 45px !important;
+    left: 40px !important;
+    bottom: unset !important;
+}
+@media (max-width:500px) {
+    .list-home-button{
+        left: 61px !important;
+    }
+    .movie-home-info{
+        right: 61px !important;
+    }
+    .home-rate{
+        right: 48px !important;
+    }
+}
+
+/*info button*/
+.movie-home-info{
+    position: absolute;
+    top: 45px;
+    right: 40px;
+    padding: 2px 14px 4px 14px;
+    background-color: #fff;
+    color: #282c34;
+    font-weight: bold;
+    border: none;
+    border-color: transparent;
+    border-radius: 20px;
+    font-size: 19px;
+    box-shadow: 7px 0px 4px 0px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }

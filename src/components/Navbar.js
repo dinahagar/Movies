@@ -38,9 +38,9 @@ const Navbar = () => {
                                 <FontAwesomeIcon icon={faCircleUser} className="user-icon"/>
                             </a>
                             <ul className="dropdown-menu navbarDropdown-ul" aria-labelledby="navbarDropdown">
-                                {/* <li>
+                                <li>
                                     <Link className="dropdown-item dropdowm-li" to="/list">My List</Link>
-                                </li> */}
+                                </li>
                                 <li>
                                     <a className="dropdown-item dropdowm-li" href="#">Log Out</a>
                                 </li>
